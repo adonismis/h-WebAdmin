@@ -41,7 +41,7 @@
             </div>
       </div>    
       <div class="col-md-9 text-right">
-        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#editModal" data-title="快速下單" data-backdrop="static">
+        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#editModal" data-pronameid="0" data-title="快速下單" data-backdrop="static">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i> 快速下單</button>
       </div>
     </div>
@@ -71,7 +71,7 @@
         <td class="text-right">NT$ 899</td>
         <td class="text-center">
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#editModal" data-title="編輯：超纖細肥皂 1盒" data-backdrop="static">編輯</button>
+            <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#editModal" data-title="編輯：超纖細肥皂" data-UserName="mark" data-usermail="Mark@mail.com" data-pronameid="1" data-pronum="1" data-backdrop="static">編輯</button>
             <button type="button" class="btn btn-outline-secondary">查看</button>
             <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               其他
@@ -98,7 +98,7 @@
         <td class="text-right">NT$ 3,600</td>
         <td class="text-center">
             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#editModal" data-title="編輯：(保證)無泡泡沐浴乳 5罐" data-backdrop="static">編輯</button>
+              <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#editModal" data-title="編輯：(保證)無泡泡沐浴乳" data-username="Jacob" data-usermail="Jacob@mail.com" data-pronameid="2" data-pronum="5" data-backdrop="static">編輯</button>
               <button type="button" class="btn btn-outline-secondary">查看</button>
               <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 其他
@@ -121,7 +121,7 @@
         <td class="text-right">NT$ 14,060</td>
         <td class="text-center">
             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#editModal" data-title="編輯：防滑燈罩 100個" data-backdrop="static">編輯</button>
+              <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#editModal" data-title="編輯：防滑燈罩" data-username="Larry" data-usermail="Larry@mail.com" data-pronameid="3" data-pronum="100" data-backdrop="static">編輯</button>
               <button type="button" class="btn btn-outline-secondary">查看</button>
               <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 其他
@@ -141,21 +141,6 @@
             <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
           </div>
         </th>
-      </tr>
-      <tr>
-        <th scope="row" colspan="7">...</th>
-      </tr>
-      <tr>
-        <th scope="row" colspan="7">...</th>
-      </tr>
-      <tr>
-        <th scope="row" colspan="7">...</th>
-      </tr>
-      <tr>
-        <th scope="row" colspan="7">...</th>
-      </tr>
-      <tr>
-        <th scope="row" colspan="7">...</th>
       </tr>
     </tbody>
   </table>
@@ -184,19 +169,48 @@
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">送出</button>
-      </div>
+      <form id="needs-validation" action="#" novalidate>
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="UserName">用戶名稱</label>
+            <input type="text" class="form-control" id="UserName" placeholder="請輸入用戶名稱" required>
+          </div>
+          <div class="form-group">
+            <label for="UserMail">信箱</label>
+            <input type="email" class="form-control" id="UserMail" placeholder="請輸入信箱" required>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="ProName">品頊</label>
+                <select name="ProName" id="ProName" class="form-control" required>
+                  <option value="0">請選擇</option>
+                  <option value="1">超迷你肥皂 1盒</option>
+                  <option value="2">(保證)無泡泡沐浴乳 5罐</option>
+                  <option value="3">防滑燈罩 100個</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="ProNum">數量</label>
+                <input type="number" class="form-control" id="ProNum" placeholder="請輸入數量" required>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">送出</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -228,22 +242,39 @@
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
     $('#editModal').on('show.bs.modal',function(event){
-      var btn = $(event.relatedTarget);
-      var title = btn.data('title');
-
+      var btn      = $(event.relatedTarget);
+      var title    = btn.data('title');
+      var UserName = btn.data('username');
+      var UserMail = btn.data('usermail');
+      var ProNum   = btn.data('pronum');
+      var ProNameId   = btn.data('pronameid');
+      
       var modal = $(this);
       modal.find('.modal-title').text(title);
-      
+      modal.find('#UserName').val(UserName);
+      modal.find('#UserMail').val(UserMail);
+      modal.find('#ProName').val(ProNameId);
+      modal.find('#ProNum').val(ProNum);      
     });
     $('#delModal').on('show.bs.modal',function(event){
       var btn = $(event.relatedTarget);
       var title = btn.data('title');
-
       var modal = $(this);
       modal.find('.modal-title').text(title);
-      
     });
     
+    'use strict';
+    window.addEventListener('load', function() {
+      var form = document.getElementById('needs-validation');
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    }, false);
+
 
   })
 </script>
